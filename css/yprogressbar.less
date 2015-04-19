@@ -1,0 +1,132 @@
+@keyframes light{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(499px, 0, 0);
+  }
+}
+@-webkit-keyframes light{
+  0%{
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100%{
+    -webkit-transform: translate3d(499px, 0, 0);
+  }
+}
+@-moz-keyframes light{
+  0%{
+    -moz-transform: translate3d(0, 0, 0);
+  }
+  100%{
+    -moz-transform: translate3d(499px, 0, 0);
+  }
+}
+@-o-keyframes light{
+  0%{
+    -o-transform: translate3d(0, 0, 0);
+  }
+  100%{
+    -o-transform: translate3d(499px, 0, 0);
+  }
+}
+@-ms-keyframes light{
+  0%{
+    -ms-transform: translate3d(0, 0, 0);
+  }
+  100%{
+    -ms-transform: translate3d(499px, 0, 0);
+  }
+}
+.transform(@options){
+  transform: @options;
+  -webkit-transform: @options;
+  -moz-transform: @options;
+  -o-transform: @options;
+  -ms-transform: @options;
+}
+.animation(@options){
+  animation: @options;
+  -webkit-animation: @options;
+  -moz-animation: @options;
+  -o-animation: @options;
+  -ms-animation: @options;
+}
+div.y-progress-bar-box{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  .transform(translate3d(-50%, -50%, 0));
+  background: url(../images/y_progress.png) no-repeat -2px -50px;
+  width: 510px;
+  height: 174px;
+  >div{
+    position: absolute;
+    &.y-progress-bar-cover{
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url("../images/y_progress_transparentlayer.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &.y-progress-bar-light{
+      background:url(../images/y_progress.png) no-repeat -516px -51px;
+      width: 11px;
+      height: 174px;
+      left: 0;
+      top: 0;
+      .animation(light 2.3s linear 0 infinite);
+    }
+    &.y-progress-bar-close{
+      background:url(../images/y_progress.png) no-repeat -396px -12px;
+      width: 26px;
+      height: 22px;
+      top: 4px;
+      right: 0;
+    }
+  }
+  >table{
+    margin: 45px auto;
+    td{
+      >div{
+        color: #fff;
+        font-family: "微软雅黑";
+        &.y-progress-bar-box-content-title{
+          font-size: 20px;
+        }
+        &.y-progress-bar-box-content-sep15{
+          height: 15px;
+        }
+        &.y-progress-bar-box-content-des{
+          font-size: 15px;
+          min-height: 40px;
+        }
+        &.y-progress-bar-box-digital{
+          position: relative;
+          width: 101px;
+          height: 45px;
+          >div{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 32px;
+            background-image: url("../images/y_progress.png");
+            background-repeat: no-repeat;
+            &.y-progress-bar-box-digital-tenth{
+              left: 0;
+            }
+            &.y-progress-bar-box-digital-oneth{
+              left: 37px;
+              right: 32px;
+            }
+            &.y-progress-bar-box-digital-rate{
+              right: 0;
+              background-position: -96px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

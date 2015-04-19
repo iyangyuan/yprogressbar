@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>yprogressbar - 示例页面</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- 引用yprogressbar的css文件 -->
+    <link rel="stylesheet" type="text/css" href="./css/yprogressbar.css">
+  </head>
+  <body>
+    <!-- 引用yprogressbar的js文件 -->
+    <script src="./js/yprogressbar.js"></script>
+    <script>
+      //实例化
+      var ypb = new YprogressBar({
+        title: "正在上传文件...",
+        des: "上传速度：{{y:speed}}MB/秒 剩余时间约{{y:second}}秒",
+        closeable: true,
+        cancelCallback: function(rate, vars){
+          console.log(rate);
+          console.log(vars);
+        }
+      });
+      //显示
+      ypb.show();
+      //模拟更新
+      var time = 0;
+      setInterval(function(){
+        time = time + parseInt(Math.random()*10);
+        ypb.update(time,{
+          speed: parseInt(Math.random()*1000),
+          second: parseInt(Math.random()*100)
+        });
+      },700);
+    </script>
+  </body>
+</html>
