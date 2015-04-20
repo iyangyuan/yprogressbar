@@ -17,7 +17,7 @@
     this.key;
     this.domCache = {};
     this.cancelCallback = options.cancelCallback || function(){};
-    this.paramKeys = [];
+    this.paramKeys = {};
     this.desTemplate;
     this.rate;
     
@@ -63,7 +63,7 @@
     //检查描述中是否有参数
     var pks;
     while(pks = paramKeysRegex.exec(options.des) || null){
-      this.paramKeys.push(pks[1]);
+      this.paramKeys[pks[1]] = undefined;
     }
     
     //保存描述模版
